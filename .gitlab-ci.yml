@@ -1,4 +1,4 @@
-image: nestjs/cli:latest
+image: registry.git.avidi.tech/docker/nestjs_cli
 
 stages:
   # - install
@@ -34,6 +34,7 @@ build:
   script:
     - apk add git
     - npm i
+    - npm run lint
     - npm run pack
 
 deploy:
