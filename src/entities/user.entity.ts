@@ -6,7 +6,6 @@ import { ContainsId } from '@avidi/core';
 
 const { CREATE, UPDATE } = CrudValidationGroups;
 
-// tslint:disable-next-line:max-classes-per-file
 @Entity('users')
 @ContainsId()
 export class User {

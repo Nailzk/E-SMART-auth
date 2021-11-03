@@ -20,7 +20,7 @@ console.log('config', { ...ormConfig, password: '***' })
   providers: providers,
 })
 export class AppModule implements NestModule {
-  configure(consumer: MiddlewareConsumer) {
+  configure(consumer: MiddlewareConsumer): void {
     consumer
       .apply(AuthMiddleware)
       .forRoutes('*');

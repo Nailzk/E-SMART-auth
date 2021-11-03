@@ -14,7 +14,7 @@ const env: { [key: string]: string | boolean } = process.env;
  * IMPORTANT: DONT CHANGE LOCATIONS IN package.json (it will not work)!!!!
  */
 
-const watch = (process.argv || []).some(i => i.includes('watch'));
+const watch = (process.argv || []).some(i => i.includes('--watch'));
 
 module.exports = {
     type: env.TYPEORM_CONNECTION || "postgres",
