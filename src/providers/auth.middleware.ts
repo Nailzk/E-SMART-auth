@@ -12,10 +12,16 @@ export class AuthMiddleware implements NestMiddleware {
     const token: string = req.cookies.access_token;
     const payload = this.jwtService.decode(token);
 
-    process.stdout.write("Hello World\n"); 
-    this.logger.log(`payload ${payload}`);
+    if (payload && typeof payload !== 'string') {
+      (req as any).user = {
+        id: payload?.id,
+        role: payload?.role
+      }
+    } else if (process.env.ALWAYS_AUTHORIZE == 'true' && !payload) {
+      res.sendStatus(401);
+      return;
+    }
 
     next();
-    // res.sendStatus(401);
   }
 }
