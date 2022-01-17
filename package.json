@@ -30,7 +30,7 @@
     "ri": "rm -rf node_modules/@avidi package-lock.json && npm i"
   },
   "dependencies": {
-    "@avidi/core": "git+https://git.avidi.tech:zdoF-WhEdwhGXbDC9HEj@git.avidi.tech/nodejs/core.git#update",
+    "@avidi/core": "git+https://git.avidi.tech:zdoF-WhEdwhGXbDC9HEj@git.avidi.tech/nodejs/core.git",
     "@nestjs/common": "8.1.2",
     "@nestjs/core": "8.1.2",
     "@nestjs/jwt": "8.0.0",
