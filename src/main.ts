@@ -1,8 +1,5 @@
-import './crud-options';
-import * as cookieParser from 'cookie-parser';
-import { bootstrap } from '@avidi/core';
-import { AppModule } from './app.module';
+import { bootstrap } from "nest-utils";
+import { AppModule } from "./app.module";
+import "./crud-options";
 
-bootstrap(AppModule, app => {
-    app.use(cookieParser());
-});
+bootstrap(AppModule);
