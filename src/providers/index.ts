@@ -1,9 +1,11 @@
 import { UsersService } from "./users.service";
+import { UserRequestInterceptor } from "../interceptor";
 
 export {
-    UsersService
+    UsersService,
+    UserRequestInterceptor
 };
 
 export default [
-    UsersService
+    UsersService,
 ]

@@ -7,8 +7,6 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "pack": "npm run build && cp -a dist/ app",
-    "pack:prod": "npm run pack && docker-compose build",
-    "publish": "npm run pack:prod && docker-compose push",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start:dev": "nest start --watch",
@@ -26,8 +24,7 @@
     "db:sync": "cd src && npx ts-node -r tsconfig-paths/register ../node_modules/typeorm/cli.js schema:sync -f=ormconfig.ts",
     "db:drop": "cd src && npx ts-node -r tsconfig-paths/register ../node_modules/typeorm/cli.js schema:drop -f=ormconfig.ts",
     "db:seeds": "cd src && npx ts-node -r tsconfig-paths/register ../node_modules/typeorm/cli.js migration:run -f=ormconfig.ts",
-    "db:prepare": "npm run db:drop && npm run db:sync && npm run db:seeds",
-    "ri": "rm -rf node_modules/@avidi package-lock.json && npm i"
+    "db:prepare": "npm run db:drop && npm run db:sync && npm run db:seeds"
   },
   "dependencies": {
     "@nestjs/common": "8.1.2",
@@ -44,6 +41,7 @@
     "cookie-parser": "1.4.5",
     "dotenv": "10.0.0",
     "express": "4.17.1",
+    "nest-utils": "github:Nailzk/nest-utils",
     "pg": "8.7.1",
     "reflect-metadata": "0.1.13",
     "rimraf": "3.0.2",
