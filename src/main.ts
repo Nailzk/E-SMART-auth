@@ -1,8 +1,10 @@
-import './crud-options';
-import * as cookieParser from 'cookie-parser';
-import { bootstrap } from '@avidi/core';
-import { AppModule } from './app.module';
+import "./crud-options";
+import { AppModule } from "app.module";
+import * as dotenv from "dotenv";
+import { bootstrap, CrudRequestInterceptor } from "nest-utils";
 
-bootstrap(AppModule, app => {
-    app.use(cookieParser());
+dotenv.config();
+
+bootstrap(AppModule,(app) => {
+    app.useGlobalInterceptors(new CrudRequestInterceptor())
 });

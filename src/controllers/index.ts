@@ -1,9 +1,15 @@
+import { AuthController } from "./auth.controller";
+import { RolesController } from "./roles.controller";
 import { UsersController } from "./users.controller";
 
 export {
-    UsersController
+    UsersController,
+    AuthController,
+    RolesController,
 };
 
 export default [
-    UsersController
+    UsersController,
+    AuthController,
+    RolesController,
 ]

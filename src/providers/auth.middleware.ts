@@ -9,7 +9,7 @@ export class AuthMiddleware implements NestMiddleware {
   constructor(private readonly jwtService: JwtService) { }
 
   use(req: Request, res: Response, next: NextFunction): void {
-    const token: string = req.cookies.access_token;
+    const token: string = req.cookies.jwt_token;
     const payload = this.jwtService.decode(token);
 
     if (payload && typeof payload !== 'string') {
