@@ -1,23 +1,31 @@
-import { Controller } from '@nestjs/common';
-import { ApiTags } from '@nestjs/swagger';
-import { Crud, CrudController } from '@nestjsx/crud';
-import { User } from '../entities';
-import { UsersService } from '../providers';
+import { Controller } from "@nestjs/common";
+import { ApiTags } from "@nestjs/swagger";
+import { Crud, CrudController } from "@nestjsx/crud";
+import { User } from "../entities";
+import { UsersService } from "../providers";
 
 @Crud({
-  model: {
-    type: User,
-  },
-  params: {
-    id: {
-      field: 'id',
-      type: 'number',
-      primary: true,
+    model: {
+        type: User,
     },
-  },
+    params: {
+        id: {
+            field: "id",
+            type: "number",
+            primary: true,
+        },
+    },
+    query: {
+        join: {
+            role: {},
+        },
+    },
+    routes: {
+        only: ["getOneBase", "getManyBase"],
+    },
 })
-@ApiTags('users')
-@Controller('/users')
+@ApiTags("Users")
+@Controller("/users")
 export class UsersController implements CrudController<User> {
-  constructor(public service: UsersService) {}
+    constructor(public service: UsersService) {}
 }
