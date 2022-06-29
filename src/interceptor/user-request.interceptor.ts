@@ -21,8 +21,8 @@ export class UserRequestInterceptor
     implements NestInterceptor
 {
     intercept(context: ExecutionContext, next: CallHandler) {
-        const req = context.switchToHttp().getRequest();
-        const payload: any = JwtService.prototype.decode(req.cookies.jwt_token);
+        const req = context.switchToHttp().getRequest()
+        const payload: any = JwtService.prototype.decode(req.cookies.jwt_token)
 
         try {
             if (!req[PARSED_CRUD_REQUEST_KEY]) {
