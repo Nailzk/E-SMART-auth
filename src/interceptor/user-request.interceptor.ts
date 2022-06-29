@@ -13,7 +13,7 @@ import { MergedCrudOptions, CrudRequest } from "@nestjsx/crud/lib/interfaces";
 import { QueryFilterFunction } from "@nestjsx/crud/lib/types";
 import { CrudBaseInterceptor } from "@nestjsx/crud/lib/interceptors/crud-base.interceptor";
 import { CrudActions } from "@nestjsx/crud";
-import { JwtService } from "@nestjs/jwt";
+import { JwtService } from "@nestjs/jwt"
 
 @Injectable()
 export class UserRequestInterceptor
