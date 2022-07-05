@@ -1,6 +1,7 @@
-import { Controller } from "@nestjs/common";
+import { Controller, Get, Req } from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
 import { Crud, CrudController } from "@nestjsx/crud";
+import { ICrudRequest } from "nest-utils";
 import { User } from "../entities";
 import { UsersService } from "../providers";
 
@@ -17,7 +18,7 @@ import { UsersService } from "../providers";
     },
     query: {
         join: {
-            role: {},
+            role: { eager: false },
         },
     },
     routes: {
@@ -25,7 +26,12 @@ import { UsersService } from "../providers";
     },
 })
 @ApiTags("Users")
-@Controller("/users")
+@Controller("users")
 export class UsersController implements CrudController<User> {
     constructor(public service: UsersService) {}
+
+    @Get("me")
+    public async getUser(@Req() request: ICrudRequest): Promise<User> {
+        return this.service.getUser(request);
+    }
 }

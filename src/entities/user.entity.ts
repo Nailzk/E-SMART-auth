@@ -4,9 +4,7 @@ import {
     Column,
     Entity,
     JoinColumn,
-    ManyToOne,
-    OneToOne,
-    PrimaryGeneratedColumn,
+    ManyToOne, PrimaryGeneratedColumn
 } from "typeorm";
 import { Role } from "./role.entity";
 
@@ -23,6 +21,18 @@ export class User {
     @ApiProperty()
     @Column({ type: "varchar", nullable: false, length: 155, unique: true })
     email: string;
+
+    @ApiProperty()
+    @Column({ type: "varchar", nullable: false, length: 155 })
+    name: string;
+
+    @ApiProperty()
+    @Column({ type: "varchar", nullable: false, length: 155 })
+    surName: string;
+
+    @ApiProperty()
+    @Column({ type: "varchar", nullable: false, length: 12, unique: true })
+    phone: string;
 
     @ApiProperty()
     @Exclude()

@@ -4,7 +4,7 @@ import { InjectRepository } from "@nestjs/typeorm";
 import * as bcrypt from "bcrypt";
 import { Response } from "express";
 import { Repository } from "typeorm";
-import { HASH_SALT } from "../constant";
+import { HASH_SALT, USER_DEFAULT_ROLE_ID } from "../constant";
 import { LoginDTO, RegisterDto } from "../dto";
 import { Role, User } from "../entities";
 
@@ -19,7 +19,11 @@ export class AuthService {
     public async register(dto: RegisterDto): Promise<boolean> {
         const hashedPassword = await this._hashPassword(dto.password);
 
-        await this._usersRepo.save({ ...dto, password: hashedPassword });
+        await this._usersRepo.save({
+            ...dto,
+            password: hashedPassword,
+            roleId: USER_DEFAULT_ROLE_ID,
+        });
 
         return true;
     }

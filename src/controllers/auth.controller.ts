@@ -1,6 +1,8 @@
-import { Body, Controller, Post, Res } from "@nestjs/common";
+import { Body, Controller, Get, Post, Req, Res } from "@nestjs/common";
 import { ApiTags } from "@nestjs/swagger";
+import { User } from "entities";
 import { Response } from "express";
+import { ICrudRequest } from "nest-utils";
 import { LoginDTO, RegisterDto } from "../dto";
 import { AuthService } from "../providers";
 
@@ -21,4 +23,6 @@ export class AuthController {
     async register(@Body() regDto: RegisterDto) {
         return this._authService.register(regDto);
     }
+
+   
 }
