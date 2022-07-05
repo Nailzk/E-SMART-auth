@@ -8,8 +8,14 @@ export class RegisterDto {
     email:string;
 
     @ApiProperty()
-    password: string;
+    name: string;
 
     @ApiProperty()
-    roleId: number;
+    surName: string;
+
+    @ApiProperty()
+    phone: string;
+
+    @ApiProperty()
+    password: string;
 }
